@@ -4,6 +4,8 @@
 //be scrollable with all of the plants that we have available, and close once the user has clicked
 // the plant they wish to add.
 
+// This should also provide logic to the "Add a plant" button itself for the user to click
+
 // Much of this is currently (as of 03/04/2024) placeholder code and will need to be adjusted
 // to actually interact with the rest of our codebase
 
