@@ -1,6 +1,6 @@
-const User = require('./Driver');
-const Greenhouse = require('./License');
-const Plants = require('./Car');
+const User = require('./user');
+const Greenhouse = require('./greenhouse');
+const Plants = require('./plant');
 
 User.hasOne(Greenhouse, {
   foreignKey: 'user_id',
@@ -11,7 +11,7 @@ Greenhouse.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Greenhouse.hasMany(Plant, {
+Greenhouse.hasMany(Plants, {
   foreignKey: 'greenhouse_id',
   onDelete: 'CASCADE',
 });
