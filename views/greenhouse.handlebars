@@ -1,0 +1,50 @@
+<!-- Greenhouse.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Greenhouse - PlantShelf</title>
+    <!-- Include CSS files -->
+    <link rel="stylesheet" href="/css/jass.css"> <!-- Include the provided CSS file -->
+    <!-- Include JavaScript file -->
+    <script src="/js/scripts.js" defer></script> <!-- defer attribute ensures script executes after DOMContentLoaded -->
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <h1>My Greenhouse</h1>
+    </header>
+    
+    <!-- Main content area -->
+    <div class="container">
+        <h2>Welcome to your greenhouse!</h2>
+        <!-- Greenhouse layout -->
+        <div class="greenhouse-layout">
+            <!-- Display up to six plant slots in the greenhouse -->
+            {{#each greenhouseSlots}}
+                <div class="plant-slot">
+                    {{#if this.plant}}
+                        {{this.plant.name}}
+                    {{else}}
+                        <!-- Add a plant button -->
+                        <button class="add-plant-button">Add a Plant</button>
+                        <!-- Scrollable menu for plant options -->
+                        <div class="plant-menu">
+                            {{#each plants}}
+                                <div class="plant-option" data-plant-id="{{this.id}}">{{this.name}}</div>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; {{currentYear}} PlantShelf. All rights reserved.</p>
+    </footer>
+</body>
+</html>
