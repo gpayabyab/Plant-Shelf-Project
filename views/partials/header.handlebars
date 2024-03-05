@@ -1,0 +1,25 @@
+<!-- header.handlebars -->
+
+<header>
+    <div class="container">
+        <!-- Title of the App -->
+        <h1>{{appTitle}}</h1>
+
+        <!-- Navigation Menu -->
+        <nav>
+            <ul>
+                <!-- Link to the main greenhouse management page -->
+                <li><a href="/greenhouse">My Greenhouse</a></li>
+                
+                <!-- Check if user is authenticated -->
+                {{#if isAuthenticated}}
+                    <!-- If authenticated, display logout option -->
+                    <li><a href="/logout">Logout</a></li>
+                {{else}}
+                    <!-- If not authenticated, display login option -->
+                    <li><a href="/login">Login</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </div>
+</header>
