@@ -1,6 +1,6 @@
 const User = require('./user');
 const Greenhouse = require('./greenhouse');
-const Plants = require('./plant');
+const Plant = require('./plant');
 
 User.hasOne(Greenhouse, {
   foreignKey: 'user_id',
@@ -11,7 +11,7 @@ Greenhouse.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Greenhouse.hasMany(Plants, {
+Greenhouse.hasMany(Plant, {
   foreignKey: 'greenhouse_id',
   onDelete: 'CASCADE',
 });
