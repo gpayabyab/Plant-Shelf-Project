@@ -12,6 +12,10 @@
                 {{#if isAuthenticated}}
                     <!-- If authenticated, display logout option -->
                     <li><a href="/logout">Logout</a></li>
+                {{else}}
+                    <!-- If not authenticated, display login option -->
+                    <li><a href="/login">Login</a></li>
+                {{/if}}
             </ul>
         </nav>
     </div>
