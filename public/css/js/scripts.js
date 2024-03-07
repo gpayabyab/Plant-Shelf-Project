@@ -6,7 +6,11 @@
 
 // This should also provide logic to the "Add a plant" button itself for the user to click
 
-// Much of this is currently (as of 03/04/2024) placeholder code and will need to be adjusted
+// I have also added logic to create a "Remove plant" button for the user to click when a plant exists,
+// and resets the condition of the list item in the Greenhouse back to the "Add a plant" state and deletes
+// the "Remove plant" button
+
+// Much of this is currently (as of 03/06/2024) placeholder code and will need to be adjusted
 // to actually interact with the rest of our codebase
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -38,10 +42,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Add click event listener to each remove plant button
+    const removePlantButtons = document.querySelectorAll('.remove-plant-button');
+    removePlantButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Find the parent plant slot
+            const plantSlot = button.closest('.plant-slot');
+            
+            // Reset the plant slot to have the "Add a plant" button
+            plantSlot.innerHTML = '<button class="add-plant-button">Add a Plant</button>';
+
+            // Perform any additional actions (e.g., removing the plant from the database)
+            removePlantFromGreenhouse(plantSlot);
+        });
+    });
+
     // Function to add the selected plant to the greenhouse
     function addPlantToGreenhouse(plantId, plantName) {
         // Here you would implement the logic to send a request to the server
         // to add the selected plant to the user's greenhouse
         console.log(`Adding plant ${plantName} with ID ${plantId} to the greenhouse`);
+    }
+
+    // Function to remove the plant from the greenhouse
+    function removePlantFromGreenhouse(plantSlot) {
+        // Here you would implement the logic to send a request to the server
+        // to remove the plant from the user's greenhouse
+        console.log('Removing plant from the greenhouse');
     }
 });
