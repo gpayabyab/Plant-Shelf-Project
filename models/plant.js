@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
+//need to figure out correct file path
 const sequelize = require("../config/connection");
 
 class Plant extends Model {}
@@ -13,27 +14,27 @@ Plant.init(
     },
     plant_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     plant_type: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     plant_height: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     sunlight: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     water: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     humidity: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
