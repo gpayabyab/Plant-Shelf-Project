@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to add the selected plant to the greenhouse
     function addPlantToGreenhouse(plantId, plantName) {
-        // Here you would implement the logic to send a request to the server
+        // Implement the logic to send a request to the server
         // to add the selected plant to the user's greenhouse
         console.log(`Adding plant ${plantName} with ID ${plantId} to the greenhouse`);
     }
 
     // Function to remove the plant from the greenhouse
     function removePlantFromGreenhouse(plantSlot) {
-        // Here you would implement the logic to send a request to the server
+        // Implement the logic to send a request to the server
         // to remove the plant from the user's greenhouse
         console.log('Removing plant from the greenhouse');
     }
