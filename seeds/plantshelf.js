@@ -6,7 +6,13 @@ const users= require('./userdata.json');
 
 const seedPlant = async () => {
   await sequelize.sync({ force: true });
-  Plant.bulkCreate(plantdata);
+  
+  await Plant.bulkCreate(plantdata);
+
+  await User.bulkCreate(userData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   for (const { id } of users) {
     const newGreenhouse = await Greenhouse.create({
