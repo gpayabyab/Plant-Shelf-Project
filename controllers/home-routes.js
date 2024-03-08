@@ -5,7 +5,20 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     const plantData = await Plant.findAll({    
-      order: [['name', 'ASC']],
+      include: [
+        {
+          model: Painting,
+          attributes: [
+            'id',
+            'plant_name',
+            'plant_height',
+            'plant_type',
+            'sunlight',
+            'water',
+            'humidity'
+          ],
+        },
+      ],
     });
 
     const plants = plantData.map((project) => project.get({ plain: true }));
