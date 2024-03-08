@@ -9,7 +9,7 @@ const seedPlant = async () => {
   
   await Plant.bulkCreate(plantdata);
 
-  await User.bulkCreate(userData, {
+  await User.bulkCreate(users, {
     individualHooks: true,
     returning: true,
   });
