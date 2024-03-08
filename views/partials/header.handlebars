@@ -1,22 +1,13 @@
 <!-- header.handlebars -->
 
 <header>
-    <div class="container">
+    <div class="header">
         <!-- Title of the App -->
-        <h1>{{appTitle}}</h1>
+        
+  <h1>Welcome To PlantShelf</h1>
+  <p>Please enjoy learning more about plants you own in our virtual greenhouse</p>
 
-        <!-- Navigation Menu -->
-        <nav>
-            <ul>
-                <!-- Check if user is authenticated -->
-                {{#if isAuthenticated}}
-                    <!-- If authenticated, display logout option -->
-                    <li><a href="/logout">Logout</a></li>
-                {{else}}
-                    <!-- If not authenticated, display login option -->
-                    <li><a href="/login">Login</a></li>
-                {{/if}}
-            </ul>
-        </nav>
+
+
     </div>
 </header>
