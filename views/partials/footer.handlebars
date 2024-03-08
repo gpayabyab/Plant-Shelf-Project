@@ -3,6 +3,18 @@
 <footer>
     <div class="container">
         <!-- Copyright notice -->
+        <nav>
+            <ul>
+                <!-- Check if user is authenticated -->
+                {{#if isAuthenticated}}
+                    <!-- If authenticated, display logout option -->
+                    <li><a href="/logout">Logout</a></li>
+                {{else}}
+                    <!-- If not authenticated, display login option -->
+                    <li><a href="/login">Login</a></li>
+                {{/if}}
+            </ul>
+        </nav>
         <p>&copy; 2024 PlantShelf. All rights reserved.</p>
     </div>
 </footer>
