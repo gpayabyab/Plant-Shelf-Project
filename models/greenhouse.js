@@ -14,21 +14,7 @@ Greenhouse.init(
     greenhouse_name: {
       type: DataTypes.STRING,
       allowNull: true,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
-    plant_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "plant",
-          key: "id",
-        },
-      },
+    },    
   },
   {
     sequelize,
