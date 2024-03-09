@@ -1,39 +1,35 @@
 const router = require('express').Router();
-const { User, Plant } = require('../models');
+const { User, Plant, Greenhouse, GreenhousePlant } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const plantData = await Plant.findAll({    
+    const greenhouseData = await Greenhouse.findOne({    
+      where: { user_id: req.session.userId},
       include: [
-        {
-          model: Painting,
-          attributes: [
-            'id',
-            'plant_name',
-            'plant_height',
-            'plant_type',
-            'sunlight',
-            'water',
-            'humidity'
-          ],
-        },
-      ],
+        User,
+        Plant
+      ]
     });
 
-    const plants = plantData.map((project) => project.get({ plain: true }));
+    const greenhouse = greenhouseData.get({ plain: true });
+    console.log(greenhouse);
 
     res.render('greenhouse', {
-      plants,
-      logged_in: req.session.logged_in,
+      ...greenhouse,
+      emptySlots: Array.from(
+        {length: 6-greenhouse.plants.length}
+      ),
+      logged_in: req.session.loggedIn,
     });
-  } catch (err) {
+  } catch (err) { 
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }

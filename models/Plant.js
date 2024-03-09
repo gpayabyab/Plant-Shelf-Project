@@ -12,15 +12,15 @@ Plant.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    plant_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    plant_type: {
+    type: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    plant_height: {
+    height: {
       type: DataTypes.STRING,
       allowNull: true,
     },

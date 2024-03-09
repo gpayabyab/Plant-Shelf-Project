@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 //need to figure out correct file path
 const sequelize = require("../config/connection");
 
-class GreehousePlant extends Model {}
+class GreenhousePlant extends Model {}
 
-GreehousePlant.init(
+GreenhousePlant.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -35,4 +35,4 @@ GreehousePlant.init(
       }
 )
 
-module.exports =  GreehousePlant
+module.exports =  GreenhousePlant
