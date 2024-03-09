@@ -1,6 +1,6 @@
-const User = require('./user');
-const Greenhouse = require('./greenhouse');
-const Plant = require('./plant');
+const User = require('./User');
+const Greenhouse = require('./Greenhouse');
+const Plant = require('./Plant');
 const GreenhousePlant = require('./GreenhousePlant')
 
 User.hasOne(Greenhouse, {
