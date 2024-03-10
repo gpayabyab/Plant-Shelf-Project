@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Greenhouse extends Model {}
 
@@ -11,31 +11,20 @@ Greenhouse.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    greenhouse_name: {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    type: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
-    plant_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "plant",
-          key: "id",
-        },
-      },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "greenhouse",
+    modelName: 'greenhouse',
   }
 );
-
 module.exports = Greenhouse;

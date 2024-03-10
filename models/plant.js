@@ -1,6 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-//need to figure out correct file path
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Plant extends Model {}
 
@@ -12,15 +11,15 @@ Plant.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    plant_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    plant_type: {
+    type: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    plant_height: {
+    height: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -36,6 +35,13 @@ Plant.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    greenhouse_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'greenhouse',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
@@ -44,5 +50,4 @@ Plant.init(
     modelName: "plant",
   }
 );
-
 module.exports = Plant;
